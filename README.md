@@ -1,7 +1,8 @@
 # Advanced Data Structures & Algorithms Suite
 
 ![Java](https://img.shields.io/badge/Language-Java-ED8B00?logo=openjdk&logoColor=white)
-![Algorithms](https://img.shields.io/badge/Algorithms-Tarjan%20%7C%20Max--Heap%20%7C%20FSM-007396)
+![Python](https://img.shields.io/badge/Language-Python-3776AB?logo=python&logoColor=white)
+![Algorithms](https://img.shields.io/badge/Algorithms-Tarjan%20%7C%20Max--Heap%20%7C%20FSM%20%7C%20AST-007396)
 ![Complexity](https://img.shields.io/badge/Complexity-O(V%2BE)%20%7C%20O(log%20N)-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 
@@ -16,6 +17,7 @@ A curated suite of core computer science implementations in **Java**, focusing o
 | **[01. Graph Network Analyzer](./01-graph-network-analyzer)** | Fault tolerance & single-point-of-failure detection in communication topologies | **Tarjan's Strongly Connected Components (SCC)**, DFS Articulation Points | **$O(V + E)$** Time · $O(V)$ Space |
 | **[02. Dynamic Marketplace Allocator](./02-marketplace-matching-simulation)** | High-throughput freelance order matching under multi-factor constraints | **Custom Binary Max-Heap**, Open-Addressing Hash Tables, Top-$K$ Queries | **$O(\log N)$** Insertion/Extraction |
 | **[03. State-Machine Survival Game](./03-state-machine-card-game)** | Turn-based event simulation and resource balancing | **Deterministic Finite State Machine (FSM)**, Sequential Event Queues | Deterministic Linear Simulation |
+| **[04. Functional Language Interpreter](./04-functional-language-interpreter)** | Custom functional language execution & scope evaluation | **AST Tree Traversal**, Dual Lexical/Dynamic Scoping, Closures | Recursive AST Evaluation |
 
 ---
 
@@ -41,11 +43,18 @@ A curated suite of core computer science implementations in **Java**, focusing o
   - Governed by a **deterministic Finite State Machine (FSM)** with cleanly decoupled state transitions (Draw, Encounter, Decision, Resolution, Turn End).
   - Queue-based event deck randomization, discard management, and player health/stamina balancing verified through automated difficulty modeling suites.
 
+### 4. Functional Language Interpreter (`04-functional-language-interpreter`)
+- **Problem Statement:** Build a hardened interpreter for a custom-designed functional programming language supporting first-class functions, closures, dynamic lists, and dual scoping mechanics.
+- **Implementation:**
+  - Implements recursive Abstract Syntax Tree (AST) evaluation with strict coordinate-based runtime error diagnostics.
+  - Features toggleable lexical (static) and dynamic scoping resolution via isolated environment chains.
+  - Includes recursion depth guards, comprehensive test suites, and zero external runtime dependencies.
+
 ---
 
 ## Build & Execution
 
-All modules compile using standard Java (JDK 17+):
+Modules 01–03 compile using standard Java (JDK 17+); Module 04 runs on Python 3:
 
 ```bash
 # Clone the repository
@@ -66,6 +75,10 @@ java GigMatch input.txt output.txt
 cd ../03-state-machine-card-game
 javac *.java
 java Nightpass input.txt output.txt
+
+# 4. Run Functional Language Interpreter
+cd ../04-functional-language-interpreter
+python3 interpreter.py examples/recursion.txt --scope static
 ```
 
 ---
