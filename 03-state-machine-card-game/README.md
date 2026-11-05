@@ -1,62 +1,65 @@
 # State-Machine Card Game (Nightpass)
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Language: Java 17](https://img.shields.io/badge/Language-Java%2017-ED8B00?logo=openjdk&logoColor=white)](#technical-implementation)
+[![Architecture: Deterministic FSM](https://img.shields.io/badge/Architecture-Deterministic%20FSM-brightgreen.svg)](#technical-implementation)
+[![Course: CMPE 250](https://img.shields.io/badge/Course-CMPE%20250%20Boğaziçi-purple.svg)](#overview)
+
 ## Table of Contents
 - [Overview](#overview)
 - [Gameplay Mechanics](#gameplay-mechanics)
 - [Technical Implementation](#technical-implementation)
-- [Installation](#installation)
-- [Usage](#usage)
+- [Installation & Usage](#installation--usage)
 - [Testing](#testing)
 - [License](#license)
+- [Related Projects](#related-projects)
 
 ---
 
 ## Overview
 
-**Nightpass** is a strategy-based survival card game developed for the **CMPE 250 (Data Structures and Algorithms)** course at **Boğaziçi University**. The game challenges players to manage resources, navigate a deck of events, and survive the night using optimized decision-making algorithms and efficient data handling.
+**Nightpass** is a deterministic, strategy-based survival card game engine developed for the **CMPE 250 (Data Structures and Algorithms)** curriculum at **Boğaziçi University**. The engine models resource-constrained decision-making across sequential card encounters using custom priority structures and state machines.
+
+---
 
 ## Gameplay Mechanics
 
-- **Resource Management**: Balance health, stamina, and items to survive.
-- **Event Deck**: A randomized series of challenges, encounters, and rewards.
-- **Strategic Combat**: Turn-based card mechanics requiring careful planning.
-- **Survival Scaling**: Difficulty increases as the "night" progresses, testing the player's long-term strategy.
+- **Resource Management:** Balances player health, stamina, and deck state across multi-round encounters.
+- **Event Deck Queueing:** Sequential series of combat encounters, deck mutations, and state transitions.
+- **Strategic Combat:** Turn-based card resolution governed by strict tie-breaking and priority rules.
+- **Survival Scaling:** Encounter difficulty scales deterministically as rounds progress.
+
+---
 
 ## Technical Implementation
 
-The game's engine focuses on algorithmic fairness and state management:
-- **State Machine**: A robust Java-based state machine handles game transitions and player actions.
-- **Sequence Handling**: Uses advanced list structures and queues to manage the event deck and discard piles.
-- **Balancing**: Implements mathematical models to ensure survival is challenging yet possible with the right strategy.
-- **Memory Efficiency**: Optimized object instantiation to ensure smooth performance during long play sessions.
+- **Deterministic Finite State Machine (FSM):** Cleanly decouples draw, encounter, decision, resolution, and turn-end phases.
+- **Custom Sequence & Priority Structures:** Manages active card pools and discard piles without standard library overhead.
+- **Memory Efficiency:** Minimizes object allocation during high-frequency simulation loops.
 
-## Installation
+---
 
-1. Ensure you have **Java JDK 17+** installed.
-2. Clone the repository:
-   ```bash
-   git clone https://github.com/yigitsarpavci/state-machine-card-game.git
-   ```
-3. Navigate to the project directory:
-   ```bash
-   cd state-machine-card-game
-   ```
+## Installation & Usage
 
-## Usage
-
-Compile the source:
 ```bash
-javac src/*.java -d bin/
+# Clone the suite repository
+git clone https://github.com/yigitsarpavci/data-structures-and-algorithms-suite.git
+cd data-structures-and-algorithms-suite/03-state-machine-card-game
+
+# Compile the source
+javac src/*.java -d bin
+
+# Run the simulation engine
+java -cp bin Main input.txt output.txt
 ```
-Start the game:
-```bash
-java -cp bin Main
-```
+
+---
 
 ## Testing
 
-Automated test cases are available to verify game logic and edge cases:
-- Test scripts and data are located in the `tests/` directory.
-- Detailed technical specifications can be found in `docs/Project2_description_v5.pdf`.
+Automated test cases (`Type1`, `Type2`, `Type3`) are located in the `tests/testcases_v4/` directory to verify state transitions and tie-breaking edge cases.
+
+---
 
 ## License
 
@@ -64,10 +67,12 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 
 ---
 
-### Related Projects
-- **[Spireslayer](https://github.com/yigitsarpavci/unix-command-interpreter)**: C-based Systems Programming and CLI Design.
-- **[MatrixNet](https://github.com/yigitsarpavci/graph-network-analyzer)**: Graph Theory and SCC Analysis.
-- **[GigMatch-Pro](https://github.com/yigitsarpavci/marketplace-matching-simulation)**: Priority Queue Matching Algorithms.
+## Related Projects
+
+- **[MatrixNet](../01-graph-network-analyzer)**: Linear-time graph network topology and Tarjan SCC connectivity analyzer.
+- **[GigMatch-Pro](../02-marketplace-matching-simulation)**: Dynamic freelance marketplace allocator powered by indexed binary max-heaps.
+- **[Aura](../04-functional-language-interpreter)**: Custom functional programming language interpreter with dual lexical and dynamic scoping.
 
 ---
-*Developed by Yigit Sarp Avci*
+
+*Developed by Yiğit Sarp Avcı*

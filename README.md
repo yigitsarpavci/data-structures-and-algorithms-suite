@@ -1,12 +1,12 @@
 # Advanced Data Structures & Algorithms Suite
 
-![Java](https://img.shields.io/badge/Language-Java-ED8B00?logo=openjdk&logoColor=white)
-![Python](https://img.shields.io/badge/Language-Python-3776AB?logo=python&logoColor=white)
-![Algorithms](https://img.shields.io/badge/Algorithms-Tarjan%20%7C%20Max--Heap%20%7C%20FSM%20%7C%20AST-007396)
-![Complexity](https://img.shields.io/badge/Complexity-O(V%2BE)%20%7C%20O(log%20N)-brightgreen)
-![License](https://img.shields.io/badge/License-MIT-blue.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Language: Java](https://img.shields.io/badge/Language-Java%2017-ED8B00?logo=openjdk&logoColor=white)](#suite-overview)
+[![Language: Python](https://img.shields.io/badge/Language-Python%203-3776AB?logo=python&logoColor=white)](#4-functional-language-interpreter-04-functional-language-interpreter)
+[![Algorithms](https://img.shields.io/badge/Algorithms-Tarjan%20%7C%20Max--Heap%20%7C%20FSM%20%7C%20AST-007396)](#module-details)
+[![Complexity](https://img.shields.io/badge/Complexity-O(V%2BE)%20%7C%20O(log%20N)-brightgreen)](#suite-overview)
 
-A curated suite of core computer science implementations in **Java**, focusing on advanced graph topology decomposition, dynamic priority allocation engines, and deterministic finite state machines engineered for algorithmic fairness and memory efficiency.
+A curated suite of core computer science and computational theory implementations in **Java 17** and **Python 3**, focusing on graph topology decomposition, dynamic priority allocation engines, deterministic finite state machines, and recursive Abstract Syntax Tree (AST) evaluation.
 
 ---
 
@@ -54,7 +54,7 @@ A curated suite of core computer science implementations in **Java**, focusing o
 
 ## Build & Execution
 
-Modules 01–03 compile using standard Java (JDK 17+); Module 04 runs on Python 3:
+Modules 01–03 compile using standard Java (JDK 17+); Module 04 runs on Python 3.8+:
 
 ```bash
 # Clone the repository
@@ -63,23 +63,29 @@ cd data-structures-and-algorithms-suite
 
 # 1. Compile & run Graph Network Analyzer
 cd 01-graph-network-analyzer
-javac *.java
-java Main input.txt output.txt
+javac src/*.java -d bin
+java -cp bin Main input.txt output.txt
 
-# 2. Compile & run Marketplace Matching
+# 2. Compile & run Marketplace Matching Simulation
 cd ../02-marketplace-matching-simulation
-javac *.java
-java GigMatch input.txt output.txt
+javac src/*.java -d bin
+java -cp bin Main input.txt output.txt
 
-# 3. Compile & run State-Machine Game
+# 3. Compile & run State-Machine Survival Game
 cd ../03-state-machine-card-game
-javac *.java
-java Nightpass input.txt output.txt
+javac src/*.java -d bin
+java -cp bin Main input.txt output.txt
 
 # 4. Run Functional Language Interpreter
 cd ../04-functional-language-interpreter
 python3 interpreter.py examples/recursion.txt --scope static
 ```
+
+---
+
+## License
+
+This repository is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
 
 ---
 
