@@ -1,91 +1,70 @@
 # Marketplace Matching Simulation (GigMatch-Pro)
 
-A fully functional freelance marketplace simulation system in Java, designed to efficiently manage interactions between customers and freelancers. Developed for a data structures and algorithms course at Boğaziçi University.
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Language: Java 17](https://img.shields.io/badge/Language-Java%2017-ED8B00?logo=openjdk&logoColor=white)](#tech-stack)
+[![Data Structures: Indexed Max-Heap](https://img.shields.io/badge/Data%20Structures-Indexed%20Max--Heap%20%7C%20O(log%20N)-brightgreen.svg)](#tech-stack)
+[![Course: CMPE 250](https://img.shields.io/badge/Course-CMPE%20250%20Boğaziçi-purple.svg)](#marketplace-matching-simulation-gigmatch-pro)
 
-The platform models a realistic service marketplace where freelancers are ranked and matched dynamically using a composite scoring mechanism that incorporates skill levels, ratings, reliability, and burnout effects.
+A high-throughput freelance marketplace simulation and priority matching engine in **Java 17**, engineered to manage real-time interactions between customers and service providers. Developed for the **CMPE 250 (Data Structures and Algorithms)** curriculum at **Boğaziçi University**.
+
+The platform models a multi-tier service marketplace where freelancers are ranked and matched dynamically using a composite scoring function incorporating skill profiles, historical ratings, cancellation reliability, and burnout penalties.
 
 ---
 
-## Features
+## Key Features
 
-### User Management
-- Registration of customers and freelancers with validation
-- Unique ID enforcement across the platform
-- Customer-specific freelancer blacklisting
+### 1. User & Access Management
+- Registration of customers and freelancers with O(1) unique ID enforcement via custom open-addressing hash tables.
+- Customer-specific freelancer blacklisting and platform-wide ban enforcement.
 
-### Service-Based Matching System
-- Freelancers categorized into service buckets
-- Priority-based matching using a custom **max-heap**
-- Composite score calculation combining:
-  - Weighted skills (service-specific importance)
-  - Average rating
-  - Reliability (cancellation ratio)
-  - Burnout penalties
+### 2. Priority-Based Matching Engine
+- Freelancers partitioned into specialized service buckets (`ServiceBucket`).
+- Real-time top-$K$ candidate extraction using a custom **indexed binary max-heap** ($O(\log N)$ updates).
+- Composite score evaluation combining weighted service skill vectors, incremental rating averages, reliability ratios, and burnout state.
 
-### Dynamic Job Allocation
-- Customers can request top-k freelancers for a service
-- Automatic assignment of the best candidate
-- Manual employment option supported
-
-### Freelancer Performance System
-- Ratings update via incremental averaging
-- Skill progression for high-rated jobs
-- Skill degradation on cancellations
-- Burnout detection based on monthly workload
-- Automatic platform bans after excessive cancellations
-
-### Customer Loyalty System
-- Tiered loyalty levels (Bronze, Silver, Gold, Platinum)
-- Discounts applied based on spending behavior
-- Penalties for frequent cancellations
-
-### Monthly Simulation Engine
-- Applies queued service/price changes
-- Updates burnout states
-- Resets monthly counters
-- Recomputes customer loyalty tiers
+### 3. Freelancer Lifecycle & Customer Loyalty
+- Skill progression on high-rated completions and skill degradation on cancellations.
+- Monthly simulation ticks updating burnout thresholds, queued price/service transitions, and customer loyalty tiers (`Bronze`, `Silver`, `Gold`, `Platinum`).
 
 ---
 
 ## Tech Stack
 
 - **Language:** Java 17
-- **Data Structures:**
-  - Open-addressing hash maps (`StringMap`) for fast lookups
-  - Dynamic arrays (`ObjList`) to avoid Java collection overhead
-  - Binary max-heaps (`ServiceBucket`) with index tracking for efficient updates
-- **Performance:**
-  - Custom `FastScanner` for high-performance input parsing
-  - Avoidance of Java standard collections in critical paths
-  - O(log n) insertion and removal in service queues
+- **Custom Data Structures (Zero `java.util` Collection Overhead):**
+  - Open-addressing hash maps (`StringMap`) for $O(1)$ entity lookups
+  - Dynamic resizing arrays (`ObjList`)
+  - Indexed binary max-heaps (`ServiceBucket`) supporting $O(\log N)$ in-place priority key updates
+- **I/O Optimization:** Custom buffered byte-stream parser (`FastScanner`) for high-volume simulation logs.
 
 ---
 
-## Local Setup
+## Build and Run
 
-### Prerequisites
-- Java JDK 17+
-
-### Compile and Run
 ```bash
-git clone https://github.com/yigitsarpavci/marketplace-matching-simulation.git
-cd marketplace-matching-simulation
-javac Main.java
-java Main
+# Clone the suite repository
+git clone https://github.com/yigitsarpavci/data-structures-and-algorithms-suite.git
+cd data-structures-and-algorithms-suite/02-marketplace-matching-simulation
+
+# Compile and run
+javac src/*.java -d bin
+java -cp bin Main input.txt output.txt
 ```
-
----
-
-## Design Highlights
-
-This project demonstrates the design and implementation of a scalable backend system that simulates real-world marketplace dynamics. It highlights skills in:
-- Data structures and algorithm design
-- System modeling and state management
-- Performance optimization in Java
-- Clean and modular code organization
 
 ---
 
 ## License
 
-This project is available under the terms specified in the repository.
+This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
+
+---
+
+## Related Projects
+
+- **[MatrixNet](../01-graph-network-analyzer)**: Linear-time graph network topology and Tarjan SCC connectivity analyzer.
+- **[Nightpass](../03-state-machine-card-game)**: Deterministic finite state machine (FSM) survival card game engine.
+- **[Aura](../04-functional-language-interpreter)**: Custom functional programming language interpreter with dual lexical and dynamic scoping.
+
+---
+
+*Developed by Yiğit Sarp Avcı*

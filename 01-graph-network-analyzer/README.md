@@ -1,69 +1,79 @@
 # Graph Network Analyzer (MatrixNet)
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Language: Java 17](https://img.shields.io/badge/Language-Java%2017-ED8B00?logo=openjdk&logoColor=white)](#technical-specifications)
+[![Algorithm: Tarjan SCC](https://img.shields.io/badge/Algorithm-Tarjan%20SCC%20%7C%20O(V%2BE)-brightgreen.svg)](#algorithmic-focus)
+[![Course: CMPE 250](https://img.shields.io/badge/Course-CMPE%20250%20Boğaziçi-purple.svg)](#overview)
+
 ## Table of Contents
 - [Overview](#overview)
 - [Algorithmic Focus](#algorithmic-focus)
 - [Key Features](#key-features)
 - [Technical Specifications](#technical-specifications)
-- [Installation](#installation)
-- [Usage](#usage)
+- [Installation & Usage](#installation--usage)
 - [Testing](#testing)
 - [License](#license)
+- [Related Projects](#related-projects)
 
 ---
 
 ## Overview
 
-**MatrixNet** is a graph-theory-based network analysis tool developed for the **CMPE 250 (Data Structures and Algorithms)** course at **Boğaziçi University**. It simulates an infrastructure network environment where an operator must identify critical nodes, analyze connectivity, and optimize data flows across complex topologies.
+**MatrixNet** is a graph-theory-based network topology analysis engine developed for the **CMPE 250 (Data Structures and Algorithms)** curriculum at **Boğaziçi University**. It simulates a mission-critical communication network where operators must identify single points of failure, isolate disconnected clusters, and optimize routing across dynamic graph topologies.
+
+---
 
 ## Algorithmic Focus
 
-The core of MatrixNet is built on graph theory and connectivity analysis:
-- **Strongly Connected Components (SCC)**: Implements **Tarjan's Algorithm** to identify isolated or highly connected network clusters.
-- **Articulation Points**: Detects critical nodes whose failure would fragment the network.
-- **Complexity Optimization**: Engineered to handle massive graphs with V vertices and E edges in O(V + E) time.
+The core of MatrixNet is built on linear-time graph connectivity and pathfinding analysis:
+- **Strongly Connected Components (SCC):** Implements **Tarjan's Algorithm** via DFS low-link discovery to identify isolated or mutually reachable network clusters.
+- **Articulation Points:** Detects critical bridge nodes whose failure would fragment the underlying communication network.
+- **Complexity Guarantee:** Engineered to process large-scale graphs with $V$ vertices and $E$ edges in optimal $O(V + E)$ linear time.
+
+---
 
 ## Key Features
 
-- **Real-time Topology Analysis**: Efficiently parses and analyzes large network graphs.
-- **Connectivity Mapping**: Maps out the entire network structure to identify bottlenecks.
-- **Performance Benchmarking**: Integrated tools to compare different algorithmic approaches (e.g., recursive vs. iterative Tarjan).
-- **Automated Validation**: Robust test suite included for verifying edge cases in network topology.
+- **Real-Time Topology Analysis:** Efficiently parses and evaluates dynamic network mutations.
+- **Connectivity Mapping:** Identifies structural bottlenecks and isolated subgraphs.
+- **Zero-Overhead Data Structures:** Uses custom adjacency lists, explicit traversal stacks, and bitsets to eliminate Java collection boxing and garbage collection pressure.
+- **Automated Validation:** Verified against an automated Python test runner (`tests/test_runner.py`).
+
+---
 
 ## Technical Specifications
 
-- **Language**: Java 17
-- **Data Structures**: Adjacency Lists, Stacks for SCC traversal, and optimized Bitsets for state tracking.
-- **Optimization**: Minimizes garbage collection overhead by reusing data structures and avoiding redundant object creation.
+- **Language:** Java 17
+- **Data Structures:** Custom Adjacency Lists, Explicit DFS Stacks, and Visited Bitsets.
+- **Memory Optimization:** Reuses pre-allocated state arrays across queries to avoid heap fragmentation.
 
-## Installation
+---
 
-1. Ensure you have **Java JDK 17+** installed.
-2. Clone the repository:
-   ```bash
-   git clone https://github.com/yigitsarpavci/graph-network-analyzer.git
-   ```
-3. Navigate to the project directory:
-   ```bash
-   cd graph-network-analyzer
-   ```
+## Installation & Usage
 
-## Usage
-
-Compile the source:
 ```bash
-javac src/*.java -d bin/
-```
-Run the console:
-```bash
+# Clone the suite repository
+git clone https://github.com/yigitsarpavci/data-structures-and-algorithms-suite.git
+cd data-structures-and-algorithms-suite/01-graph-network-analyzer
+
+# Compile the source
+javac src/*.java -d bin
+
+# Run the network analyzer
 java -cp bin Main input.txt output.txt
 ```
 
+---
+
 ## Testing
 
-The project includes a multi-approach testing suite:
-- Run automated tests: `python3 tests/test_runner.py`
-- Benchmarking logs are available in `docs/logs/` (comparing Tarjan-based vs. alternate implementations).
-- Detailed assignment specifications are in `docs/cmpe250_project3_matrixnet_description_v2.pdf`.
+Run the automated test suite against all reference input/output pairs:
+
+```bash
+python3 tests/test_runner.py
+```
+
+---
 
 ## License
 
@@ -71,10 +81,12 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 
 ---
 
-### Related Projects
-- **[Spireslayer](https://github.com/yigitsarpavci/unix-command-interpreter)**: C-based Systems Programming and CLI Design.
-- **[GigMatch-Pro](https://github.com/yigitsarpavci/marketplace-matching-simulation)**: Priority Queue Matching Algorithms.
-- **[Nightpass](https://github.com/yigitsarpavci/state-machine-card-game)**: State-Machine Survival Mechanics.
+## Related Projects
+
+- **[GigMatch-Pro](../02-marketplace-matching-simulation)**: Dynamic freelance marketplace allocator powered by indexed binary max-heaps and open-addressing hash tables.
+- **[Nightpass](../03-state-machine-card-game)**: Deterministic finite state machine (FSM) survival card game engine.
+- **[Aura](../04-functional-language-interpreter)**: Custom functional programming language interpreter with dual lexical and dynamic scoping.
 
 ---
-*Developed by Yigit Sarp Avci*
+
+*Developed by Yiğit Sarp Avcı*
