@@ -72,6 +72,7 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 - **[MatrixNet](../01-graph-network-analyzer)**: Linear-time graph network topology and Tarjan SCC connectivity analyzer.
 - **[GigMatch-Pro](../02-marketplace-matching-simulation)**: Dynamic freelance marketplace allocator powered by indexed binary max-heaps.
 - **[Aura](../04-functional-language-interpreter)**: Custom functional programming language interpreter with dual lexical and dynamic scoping.
+- **[Asymptotic-Complexity-Analyzer](../05-asymptotic-complexity-analyzer)**: Closed-form asymptotic and probabilistic complexity verification suite.
 
 ---
 

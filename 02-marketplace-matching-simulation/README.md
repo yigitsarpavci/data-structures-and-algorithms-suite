@@ -64,6 +64,7 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 - **[MatrixNet](../01-graph-network-analyzer)**: Linear-time graph network topology and Tarjan SCC connectivity analyzer.
 - **[Nightpass](../03-state-machine-card-game)**: Deterministic finite state machine (FSM) survival card game engine.
 - **[Aura](../04-functional-language-interpreter)**: Custom functional programming language interpreter with dual lexical and dynamic scoping.
+- **[Asymptotic-Complexity-Analyzer](../05-asymptotic-complexity-analyzer)**: Closed-form asymptotic and probabilistic complexity verification suite.
 
 ---
 

@@ -2,11 +2,11 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Language: Java](https://img.shields.io/badge/Language-Java%2017-ED8B00?logo=openjdk&logoColor=white)](#suite-overview)
-[![Language: Python](https://img.shields.io/badge/Language-Python%203-3776AB?logo=python&logoColor=white)](#4-functional-language-interpreter-04-functional-language-interpreter)
+[![Language: Python](https://img.shields.io/badge/Language-Python%203-3776AB?logo=python&logoColor=white)](#suite-overview)
 [![Algorithms](https://img.shields.io/badge/Algorithms-Tarjan%20%7C%20Max--Heap%20%7C%20FSM%20%7C%20AST-007396)](#module-details)
-[![Complexity](https://img.shields.io/badge/Complexity-O(V%2BE)%20%7C%20O(log%20N)-brightgreen)](#suite-overview)
+[![Complexity](https://img.shields.io/badge/Complexity-O(V%2BE)%20%7C%20O(log%20N)%20%7C%20%CE%98(n%C2%B2)-brightgreen)](#suite-overview)
 
-A curated suite of core computer science and computational theory implementations in **Java 17** and **Python 3**, focusing on graph topology decomposition, dynamic priority allocation engines, deterministic finite state machines, and recursive Abstract Syntax Tree (AST) evaluation.
+A curated suite of core computer science and computational theory implementations in **Java 17** and **Python 3**, focusing on graph topology decomposition, dynamic priority allocation engines, deterministic finite state machines, recursive Abstract Syntax Tree (AST) evaluation, and closed-form asymptotic/probabilistic complexity analysis.
 
 ---
 
@@ -18,6 +18,7 @@ A curated suite of core computer science and computational theory implementation
 | **[02. Dynamic Marketplace Allocator](./02-marketplace-matching-simulation)** | High-throughput freelance order matching under multi-factor constraints | **Custom Binary Max-Heap**, Open-Addressing Hash Tables, Top-$K$ Queries | **$O(\log N)$** Insertion/Extraction |
 | **[03. State-Machine Survival Game](./03-state-machine-card-game)** | Turn-based event simulation and resource balancing | **Deterministic Finite State Machine (FSM)**, Sequential Event Queues | Deterministic Linear Simulation |
 | **[04. Functional Language Interpreter](./04-functional-language-interpreter)** | Custom functional language execution & scope evaluation | **AST Tree Traversal**, Dual Lexical/Dynamic Scoping, Closures | Recursive AST Evaluation |
+| **[05. Asymptotic Complexity Analyzer](./05-asymptotic-complexity-analyzer)** | Closed-form asymptotic & probabilistic complexity verification | **Exact Operation Counting**, Indicator RVs, Monte Carlo & $3^n$ Verification | **$\Theta(n \log n)$** Best · **$\Theta(n^2)$** Avg · **$\Theta(n^3)$** Worst |
 
 ---
 
@@ -50,11 +51,18 @@ A curated suite of core computer science and computational theory implementation
   - Features toggleable lexical (static) and dynamic scoping resolution via isolated environment chains.
   - Includes recursion depth guards, comprehensive test suites, and zero external runtime dependencies.
 
+### 5. Asymptotic Complexity Analyzer (`05-asymptotic-complexity-analyzer`)
+- **Problem Statement:** Derive and empirically verify exact best-case, worst-case, and average-case complexity bounds for a multi-branch string-processing algorithm with state-dependent nested loops.
+- **Implementation:**
+  - Derives exact closed-form operation counts $B_k(n)$, $W_k(n)$, and $A_k(n)$ across four basic-operation sets using indicator random variables and geometric series expectations.
+  - Validates theoretical formulas with zero discrepancy against an instrumented counter engine, exhaustive $3^n$ state-space enumeration ($n \le 9$), and 2,000-trial Monte Carlo simulations.
+  - Benchmarks counter-free wall-clock execution across $n \in [1, 400]$, confirming $\Theta(n \log n)$ best-case, $\Theta(n^2)$ average-case, and $\Theta(n^3)$ worst-case scaling.
+
 ---
 
 ## Build & Execution
 
-Modules 01–03 compile using standard Java (JDK 17+); Module 04 runs on Python 3.8+:
+Modules 01–03 compile using standard Java (JDK 17+); Modules 04–05 run on Python 3.8+:
 
 ```bash
 # Clone the repository
@@ -79,6 +87,11 @@ java -cp bin Main input.txt output.txt
 # 4. Run Functional Language Interpreter
 cd ../04-functional-language-interpreter
 python3 interpreter.py examples/recursion.txt --scope static
+
+# 5. Run Asymptotic Complexity Analyzer & Empirical Verification
+cd ../05-asymptotic-complexity-analyzer
+python3 complexity_analyzer.py --verify
+python3 complexity_analyzer.py --count aabcbba
 ```
 
 ---

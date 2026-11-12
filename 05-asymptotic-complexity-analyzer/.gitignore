@@ -1,0 +1,33 @@
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# LaTeX temporary files
+report/*.aux
+report/*.log
+report/*.out
+report/*.synctex.gz
+report/*.toc
+report/*.fls
+report/*.fdb_latexmk
+
+# macOS & editor files
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+*~
+*.swp
+.vscode/
+
+# Archived local course & submission artifacts
+2023400048.py
+2023400210.py
+ReadMe.txt
+Cmpe300_Project1.pdf
+submission/
+workdone/
+report/cmpe300_group48_report.pdf
+report/cmpe300_group48_report.tex
