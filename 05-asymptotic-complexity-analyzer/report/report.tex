@@ -149,8 +149,8 @@ made. No input can do fewer; moreover $\cha^n$ is the only best input, since any
 so no input exceeds $2n$; an input without \cha\ executes both in every iteration.
 \[ W_1(n)=2n\in\Theta(n). \]
 
-\paragraph{$A_1(n)$.} Random variable: $C_1=\sum_i (X_i^a\cdot1+(X_i^b+X_i^c)\cdot2)$.
-\[ A_1(n)=\sum_{i=0}^{n-1}\bigl(p_a+2(p_b+p_c)\bigr)=n\left(\tfrac13+\tfrac43\right)=\frac{5n}{3}\in\Theta(n). \]
+\paragraph{$A_1(n)$.} Random variable: $C_1=\sum_{i=0}^{n-1} (X_i^a\cdot1+(X_i^b+X_i^c)\cdot2)$ (independent of $s$). By linearity of expectation,
+\[ A_1(n)=E[C_1]=\sum_{i=0}^{n-1}\bigl(p_a+2(p_b+p_c)\bigr)=n\left(\tfrac13+\tfrac43\right)=\frac{5n}{3}\in\Theta(n). \]
 
 \subsection{Case 2: loop increments (2)}
 
@@ -177,10 +177,10 @@ the same \chc\ or by the start). Repeating for every block turns any input into 
 without ever decreasing the count, so $\chc^n$ is a worst-case input:
 \[ W_2(n)=\frac{n(n+1)}{2}\in\Theta(n^2). \]
 
-\paragraph{$A_2(n)$.} Random variable: $C_2=\sum_i\bigl(X_i^b(s_i+1)+X_i^c(n-i)\bigr)$.
-With the independence of $X_i^b$ and $s_i$ and (\ref{eq:sum}):
+\paragraph{$A_2(n)$.} Random variable: $C_2=\sum_{i=0}^{n-1}\bigl(X_i^b(s_i+1)+X_i^c(n-i)\bigr)$.
+By linearity of expectation ($A_2(n)=E[C_2]$), the independence of $X_i^b$ and $s_i$, and (\ref{eq:sum}):
 \[
-A_2(n)=p_b\sum_{i}(E[s_i]+1)+p_c\sum_i(n-i)
+A_2(n)=p_b\sum_{i=0}^{n-1}(E[s_i]+1)+p_c\sum_{i=0}^{n-1}(n-i)
 =\frac{2n-3+3(2/3)^n}{3}+\frac{n(n+1)}{6}
 =\frac{n^2+5n}{6}-1+\left(\tfrac23\right)^n\in\Theta(n^2).
 \]
@@ -212,9 +212,9 @@ W_3(n)=\lfloor n/2\rfloor+\lceil n/2\rceil\bigl(\lfloor n/2\rfloor+1\bigr)
 =\left\lfloor\frac{n^2}{4}\right\rfloor+n\in\Theta(n^2).
 \]
 
-\paragraph{$A_3(n)$.} Random variable: $C_3=\sum_i\bigl(X_i^a+X_i^b(s_i+1)+X_i^c\bigr)$.
+\paragraph{$A_3(n)$.} Random variable: $C_3=\sum_{i=0}^{n-1}\bigl(X_i^a+X_i^b(s_i+1)+X_i^c\bigr)$.
 \[
-A_3(n)=(p_a+p_c)\,n+p_b\sum_i(E[s_i]+1)=\frac{2n}{3}+\frac{2n-3+3(2/3)^n}{3}
+A_3(n)=E[C_3]=(p_a+p_c)\,n+p_b\sum_{i=0}^{n-1}(E[s_i]+1)=\frac{2n}{3}+\frac{2n-3+3(2/3)^n}{3}
 =\frac{4n}{3}-1+\left(\tfrac23\right)^n\in\Theta(n).
 \]
 
@@ -249,17 +249,17 @@ with equality iff the input is $\cha^\alpha\chb^\beta$.
 Step 3: $g(\alpha)=-n\alpha^2+(n^2-n+L)\alpha+n^2$ has forward difference
 $g(\alpha+1)-g(\alpha)=L+n(n-2\alpha-2)$ and vertex
 $\alpha^*=\frac{n-1}{2}+\frac{L}{2n}$, where $0<\frac{L}{2n}\le\frac12$ (Lemma~\ref{lem:L}).
-For $\alpha<\lfloor n/2\rfloor$ we have $n-2\alpha-2\ge 0$, so $g(\alpha+1)-g(\alpha)\ge L>0$;
-for $\alpha\ge\lfloor n/2\rfloor$ we have $n-2\alpha-2\le -1$, so $g(\alpha+1)-g(\alpha)\le L-n\le 0$.
+For integer $\alpha<\lfloor n/2\rfloor$ we have $2\alpha\le n-2$ and thus $n-2\alpha-2\ge 0$, so $g(\alpha+1)-g(\alpha)\ge L>0$;
+for integer $\alpha\ge\lfloor n/2\rfloor$ we have $2\alpha\ge n-1$ and thus $n-2\alpha-2\le -1$, so $g(\alpha+1)-g(\alpha)\le L-n\le 0$.
 Thus $g(\alpha)$ is maximised over integers at $\alpha=\lfloor n/2\rfloor$, giving
 \[
 W_4(n)=\lfloor n/2\rfloor(\lgn+1)+n\lceil n/2\rceil\bigl(\lfloor n/2\rfloor+1\bigr)\in\Theta(n^3)
 \]
 (the second term is $\approx n^3/4$).
 
-\paragraph{$A_4(n)$.} Random variable: $C_4=\sum_i\bigl(X_i^aL+X_i^b(s_i+1)n+X_i^c(n-i)\bigr)$.
+\paragraph{$A_4(n)$.} Random variable: $C_4=\sum_{i=0}^{n-1}\bigl(X_i^aL+X_i^b(s_i+1)n+X_i^c(n-i)\bigr)$.
 \begin{align*}
-A_4(n)&=p_a nL+p_b\,n\sum_i(E[s_i]+1)+p_c\sum_i(n-i)
+A_4(n)=E[C_4]&=p_a nL+p_b\,n\sum_{i=0}^{n-1}(E[s_i]+1)+p_c\sum_{i=0}^{n-1}(n-i)
 =\frac{nL}{3}+\frac{n\bigl(2n-3+3(2/3)^n\bigr)}{3}+\frac{n(n+1)}{6}\\
 &=\frac{5n^2-5n}{6}+\frac{n(\lgn+1)}{3}+n\left(\tfrac23\right)^n\in\Theta(n^2).
 \end{align*}
@@ -483,7 +483,7 @@ Right: theoretical counts $B_4(n)$, $W_4(n)$, and $A_4(n)$ on a logarithmic scal
   The theoretical $B_4(n)$ curve matches the measured best-case execution times closely across the entire range of $n$ (Figure~\ref{fig:c4}, left panel). The slight discrete slope changes in $B_4(n)$ occur where $\lgn$ increments at powers of $2$ (such as $n=128$ and $n=256$), and the empirical timing curve follows the same quasi-linear trajectory. For $n\ge50$, the ratio $\text{time}/B_4(n)$ remains flat between $28$ and $34$\,ns per operation (Figure~\ref{fig:ratio}, left), confirming that actual best-case running time is directly proportional to $B_4(n)$. For very small sizes ($n\le10$), fixed interpreter and function-call overhead ($1$--$3\,\mu\text{s}$) dominates the sub-microsecond loop cost, explaining why the ratio starts higher before converging to a constant.
 
 \item \textbf{Worst case: $W_4(n)=\lfloor\frac n2\rfloor(\lgn+1)+n\lceil\frac n2\rceil(\lfloor\frac n2\rfloor+1)\in\Theta(n^3)$.}
-  The cubic theoretical curve $W_4(n)$ and the measured worst-case times overlap almost identically (Figure~\ref{fig:c4}, middle panel). When $n$ quadruples from $100$ to $400$, $W_4(n)$ increases by a factor of $16{,}041{,}800 / 255{,}350 \approx 62.8 \approx 4^3$, and the measured worst-case time increases from $0.00675$\,s to $0.53670$\,s (a factor of $\approx 79.5$). Consistently, the ratio $\text{time}/W_4(n)$ stays nearly constant between $26$ and $36$\,ns per operation for $n\ge50$, and the log--log plot (Figure~\ref{fig:times}, right) exhibits a clear asymptotic slope of $3$.
+  The cubic theoretical curve $W_4(n)$ and the measured worst-case times overlap almost identically (Figure~\ref{fig:c4}, middle panel). When $n$ quadruples from $100$ to $400$, $W_4(n)$ increases by a factor of $16{,}081{,}800 / 255{,}350 \approx 63.0 \approx 4^3$, and the measured worst-case time increases from $0.00675$\,s to $0.53670$\,s (a factor of $\approx 79.5$). Consistently, the ratio $\text{time}/W_4(n)$ stays nearly constant between $26$ and $36$\,ns per operation for $n\ge50$, and the log--log plot (Figure~\ref{fig:times}, right) exhibits a clear asymptotic slope of $3$.
 
 \item \textbf{Average case: $A_4(n)=\frac{5n^2-5n}{6}+\frac{n(\lgn+1)}3+n(2/3)^n\in\Theta(n^2)$.}
   The quadratic theoretical curve $A_4(n)$ accurately tracks the 10-run mean execution times (Figure~\ref{fig:c4}, right panel). When $n$ doubles from $100$ to $200$, $A_4(n)$ grows by a factor of $33{,}700.0 / 8{,}483.3 \approx 3.97 \approx 2^2$, and the measured average time grows from $0.00026$\,s to $0.00091$\,s (and to $0.00494$\,s at $n=400$). For $n\ge50$, the ratio $\text{time}/A_4(n)$ stays within $27$--$37$\,ns per operation (matching the per-operation cost observed in the best and worst cases), and the log--log plot shows a slope of $2$. The minor local fluctuations around the smooth curve are caused by finite-sample variance across the 10 random inputs per size and OS scheduling jitter.
