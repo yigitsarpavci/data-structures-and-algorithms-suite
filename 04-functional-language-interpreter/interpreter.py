@@ -1,4 +1,4 @@
-# Yiğit Sarp Avcı, 2023400048
+# Yiğit Sarp Avcı
 # Mehmet Doğukan Sungu, 2023400210
 import sys
 import re

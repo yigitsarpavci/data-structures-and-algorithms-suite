@@ -7,8 +7,6 @@ import os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 target = os.path.join(ROOT, "complexity_analyzer.py")
-if not os.path.exists(target):
-    target = os.path.join(ROOT, "2023400048.py")
 
 spec = importlib.util.spec_from_file_location("prog", target)
 m = importlib.util.module_from_spec(spec)

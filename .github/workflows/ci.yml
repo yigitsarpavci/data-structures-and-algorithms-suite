@@ -1,0 +1,58 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  graph-analyzer:
+    name: 01 Graph network analyzer (compile + sample tests)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - name: Run the sample test cases in the layout the runner expects
+        run: |
+          mkdir work
+          cp 01-graph-network-analyzer/src/*.java work/
+          cp -r 01-graph-network-analyzer/tests/testcases work/
+          cp 01-graph-network-analyzer/tests/test_runner.py work/
+          cd work && python3 test_runner.py
+
+  java-compile:
+    name: 02 and 03 compile cleanly (Java 17)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - run: |
+          for m in 02-marketplace-matching-simulation 03-state-machine-card-game; do
+            mkdir -p "build/$m"
+            javac -Xlint:all -d "build/$m" "$m"/src/*.java
+          done
+
+  interpreter:
+    name: 04 Functional language interpreter (25 tests)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash run_tests.sh
+        working-directory: 04-functional-language-interpreter
+
+  complexity-analyzer:
+    name: 05 Complexity analyzer (exhaustive 3^n verification)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 tools/brute_force_check.py
+        working-directory: 05-asymptotic-complexity-analyzer

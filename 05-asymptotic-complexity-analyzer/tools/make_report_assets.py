@@ -9,8 +9,6 @@ FIG = os.path.join(ROOT, "report", "figures")
 os.makedirs(FIG, exist_ok=True)
 
 target = os.path.join(ROOT, "complexity_analyzer.py")
-if not os.path.exists(target):
-    target = os.path.join(ROOT, "2023400048.py")
 spec = importlib.util.spec_from_file_location("prog", target)
 prog = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(prog)

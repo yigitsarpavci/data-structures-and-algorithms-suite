@@ -1,6 +1,7 @@
 # Advanced Data Structures & Algorithms Suite
 
 [![Security: CodeQL | Dependabot](https://img.shields.io/badge/Security-CodeQL%20%7C%20Dependabot%20%7C%20Secret%20scanning-success?logo=github)](https://github.com/yigitsarpavci/data-structures-and-algorithms-suite/security)
+[![CI](https://github.com/yigitsarpavci/data-structures-and-algorithms-suite/actions/workflows/ci.yml/badge.svg)](https://github.com/yigitsarpavci/data-structures-and-algorithms-suite/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Language: Java](https://img.shields.io/badge/Language-Java%2017-ED8B00?logo=openjdk&logoColor=white)](#suite-overview)
 [![Language: Python](https://img.shields.io/badge/Language-Python%203-3776AB?logo=python&logoColor=white)](#suite-overview)

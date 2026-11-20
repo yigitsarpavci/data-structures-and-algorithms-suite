@@ -1,6 +1,6 @@
 #!/bin/bash
-PROJECT_DIR="/Users/sarp/Desktop/docs/cmpe 260 new project"
-cd "$PROJECT_DIR"
+PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$PROJECT_DIR" || exit 1
 
 PASSED=0
 FAILED=0
