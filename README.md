@@ -12,6 +12,15 @@ A curated suite of core computer science and computational theory implementation
 
 ---
 
+## Quick Start
+
+```bash
+python3 03-functional-language-interpreter/interpreter.py 03-functional-language-interpreter/examples/recursion.txt --scope static
+python3 04-asymptotic-complexity-analyzer/complexity_analyzer.py --verify
+```
+
+---
+
 ## Suite Overview
 
 | Module | Core Problem Domain | Key Algorithm / Data Structure | Time / Space Complexity |
