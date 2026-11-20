@@ -65,7 +65,7 @@ Under Variant 2 ($p_a = p_b = p_c = \frac{1}{3}$, $d = 2$), indicator random var
 ## Project Structure
 
 ```text
-05-asymptotic-complexity-analyzer/
+04-asymptotic-complexity-analyzer/
 ├── complexity_analyzer.py       # Algorithm, closed-form formulas, counters & benchmark CLI
 ├── LICENSE                      # MIT License
 ├── README.md                    # Documentation and complexity summary
@@ -87,7 +87,7 @@ Requires **Python 3.8+** (standard library only; zero external runtime dependenc
 ```bash
 # Clone the suite repository
 git clone https://github.com/yigitsarpavci/data-structures-and-algorithms-suite.git
-cd data-structures-and-algorithms-suite/05-asymptotic-complexity-analyzer
+cd data-structures-and-algorithms-suite/04-asymptotic-complexity-analyzer
 
 # 1. Run real-execution timing benchmark across 15 input sizes (n = 1..400)
 python3 complexity_analyzer.py
@@ -120,8 +120,7 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 
 - **[MatrixNet](../01-graph-network-analyzer)**: Linear-time graph network topology and Tarjan SCC connectivity analyzer.
 - **[GigMatch-Pro](../02-marketplace-matching-simulation)**: Dynamic freelance marketplace allocator powered by indexed binary max-heaps.
-- **[Nightpass](../03-state-machine-card-game)**: Deterministic finite state machine (FSM) survival card game engine.
-- **[Aura](../04-functional-language-interpreter)**: Custom functional programming language interpreter with dual lexical and dynamic scoping.
+- **[Aura](../03-functional-language-interpreter)**: Custom functional programming language interpreter with dual lexical and dynamic scoping.
 
 ---
 

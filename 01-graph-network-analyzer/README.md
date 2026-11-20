@@ -84,9 +84,8 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 ## Related Projects
 
 - **[GigMatch-Pro](../02-marketplace-matching-simulation)**: Dynamic freelance marketplace allocator powered by indexed binary max-heaps and open-addressing hash tables.
-- **[Nightpass](../03-state-machine-card-game)**: Deterministic finite state machine (FSM) survival card game engine.
-- **[Aura](../04-functional-language-interpreter)**: Custom functional programming language interpreter with dual lexical and dynamic scoping.
-- **[Asymptotic-Complexity-Analyzer](../05-asymptotic-complexity-analyzer)**: Closed-form asymptotic and probabilistic complexity verification suite.
+- **[Aura](../03-functional-language-interpreter)**: Custom functional programming language interpreter with dual lexical and dynamic scoping.
+- **[Asymptotic-Complexity-Analyzer](../04-asymptotic-complexity-analyzer)**: Closed-form asymptotic and probabilistic complexity verification suite.
 
 ---
 

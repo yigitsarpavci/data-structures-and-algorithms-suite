@@ -37,7 +37,7 @@ python3 interpreter.py examples/recursion.txt --scope static
 ## Project Structure
 
 ```text
-04-functional-language-interpreter/
+03-functional-language-interpreter/
 ├── interpreter.py        # Lexer, recursive descent AST parser & evaluator
 ├── LICENSE               # MIT License
 ├── README.md             # Language specification and usage guide
@@ -62,7 +62,7 @@ python3 interpreter.py examples/recursion.txt --scope static
 ```bash
 # Clone the suite repository
 git clone https://github.com/yigitsarpavci/data-structures-and-algorithms-suite.git
-cd data-structures-and-algorithms-suite/04-functional-language-interpreter
+cd data-structures-and-algorithms-suite/03-functional-language-interpreter
 
 # Run an example program
 python3 interpreter.py examples/basics.txt
@@ -93,8 +93,7 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 
 - **[MatrixNet](../01-graph-network-analyzer)**: Linear-time graph network topology and Tarjan SCC connectivity analyzer.
 - **[GigMatch-Pro](../02-marketplace-matching-simulation)**: Dynamic freelance marketplace allocator powered by indexed binary max-heaps.
-- **[Nightpass](../03-state-machine-card-game)**: Deterministic finite state machine (FSM) survival card game engine.
-- **[Asymptotic-Complexity-Analyzer](../05-asymptotic-complexity-analyzer)**: Closed-form asymptotic and probabilistic complexity verification suite.
+- **[Asymptotic-Complexity-Analyzer](../04-asymptotic-complexity-analyzer)**: Closed-form asymptotic and probabilistic complexity verification suite.
 
 ---
 

@@ -27,7 +27,7 @@ jobs:
           cd work && python3 test_runner.py
 
   java-compile:
-    name: 02 and 03 compile cleanly (Java 17)
+    name: 02 compiles cleanly (Java 17)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -36,23 +36,23 @@ jobs:
           distribution: temurin
           java-version: "17"
       - run: |
-          for m in 02-marketplace-matching-simulation 03-state-machine-card-game; do
+          for m in 02-marketplace-matching-simulation; do
             mkdir -p "build/$m"
             javac -Xlint:all -d "build/$m" "$m"/src/*.java
           done
 
   interpreter:
-    name: 04 Functional language interpreter (25 tests)
+    name: 03 Functional language interpreter (25 tests)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - run: bash run_tests.sh
-        working-directory: 04-functional-language-interpreter
+        working-directory: 03-functional-language-interpreter
 
   complexity-analyzer:
-    name: 05 Complexity analyzer (exhaustive 3^n verification)
+    name: 04 Complexity analyzer (exhaustive 3^n verification)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - run: python3 tools/brute_force_check.py
-        working-directory: 05-asymptotic-complexity-analyzer
+        working-directory: 04-asymptotic-complexity-analyzer
