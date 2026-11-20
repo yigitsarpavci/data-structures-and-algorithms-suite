@@ -91,3 +91,5 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 ---
 
 *Developed by Yiğit Sarp Avcı*
+
+> **Note:** Stress-test inputs larger than 2 MB are not versioned to keep the repository light; `tests/test_runner.py` runs the remaining cases.

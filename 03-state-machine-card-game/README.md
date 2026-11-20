@@ -77,3 +77,5 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 ---
 
 *Developed by Yiğit Sarp Avcı*
+
+> **Note:** Stress-test files larger than 2 MB are not versioned to keep the repository light; the remaining small and medium cases are included.
